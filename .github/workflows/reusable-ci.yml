@@ -1,0 +1,15 @@
+
+name: Reusable CI
+
+on:
+  workflow_call: # This makes the workflow reusable
+
+jobs:
+  ci-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: echo "Dependencies installed"
