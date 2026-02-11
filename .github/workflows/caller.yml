@@ -1,0 +1,12 @@
+name: Caller Workflow
+
+on:
+  push:
+    branches:
+      - main
+ 
+
+jobs:
+  call-reusable:
+    # Use the path to the reusable file
+    uses: ./.github/workflows/reusable-ci.yml
