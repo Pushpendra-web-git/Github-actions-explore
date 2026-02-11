@@ -8,6 +8,7 @@ on:
     paths:
       - 'app/**'        # Only runs if files in app/ folder change
       
+      
 env:
   NODE_ENV: ci          # Global environment variable
 
