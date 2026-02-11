@@ -1,0 +1,24 @@
+name: PR workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened] # Specifically excludes 'closed'
+
+jobs:
+  pr-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print PR Number
+        run: echo "The current Pull Request number is ${{ github.event.pull_request.number }}"
+
+      - name: create test result file
+        run: echo "Test successfull" >test-results.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results.txt
