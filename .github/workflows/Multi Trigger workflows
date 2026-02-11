@@ -1,0 +1,26 @@
+yaml
+name: Multi trigger workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '*/5 * * * *' # Runs every 5 minutes (Requires 5 fields)
+  workflow_dispatch:      # Allows manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display trigger name
+        run: echo "Workflow triggered by ${{ github.event_name }}"
+
+      - name: Display Branch name
+        run: echo "Branch is ${{ github.ref }}"
+
+      - name: Simple message
+        run: echo "Github actions assignments running successfully"
