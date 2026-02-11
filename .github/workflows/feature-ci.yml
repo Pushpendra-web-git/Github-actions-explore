@@ -7,9 +7,7 @@ on:
       - 'feature/**'    # Matches any branch starting with feature/
     paths:
       - 'app/**'        # Only runs if files in app/ folder change
-    paths-ignore:
-      - '**.md'         # Ignores changes to markdown files
-
+      
 env:
   NODE_ENV: ci          # Global environment variable
 
