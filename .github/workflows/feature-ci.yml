@@ -1,10 +1,14 @@
+
+name: Feature Branch CI
+
 on:
   push:
     branches:
       - 'feature/**'    # Matches any branch starting with feature/
     paths:
       - 'app/**'        # Only runs if files in app/ folder change
-
+    paths-ignore:
+      - '**.md'         # Ignores changes to markdown files
 
 env:
   NODE_ENV: ci          # Global environment variable
@@ -21,11 +25,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-      
-      - name:install dependencies
-       run: npm install
 
-    
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run tests
         run: npm test
 
