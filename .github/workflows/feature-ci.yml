@@ -1,6 +1,3 @@
-
-name: Feature Branch CI
-
 on:
   push:
     branches:
@@ -24,6 +21,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+      
+      - name:install dependencies
+       run: npm install
 
     
       - name: Run tests
